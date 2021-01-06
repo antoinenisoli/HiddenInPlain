@@ -46,12 +46,12 @@ public class NetworkManager : MonoBehaviour
         messages.Add(MoveMessage.MessageType, new MoveMessage());
         messages.Add(SpawnPositionMessage.MessageType, new SpawnPositionMessage());
         messages.Add(PlayerJoinedMessage.MessageType, new PlayerJoinedMessage());
+        messages.Add(PlayerLeftMessage.MessageType, new PlayerLeftMessage());
     }
 
     private void OnApplicationQuit()
     {
         m_IOconnection.Disconnect();
-        MainGameplay.instance.RemovePlayer(c_client.ConnectUserId);
     }
 
     void OnErrorConnection(PlayerIOError error)
